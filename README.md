@@ -8,7 +8,7 @@ There are three strategies based on technical indicators: MACD (moving average c
 More information about the indicators: MACD (https://www.investopedia.com/articles/forex/05/macddiverge.asp)
 RSI (https://www.investopedia.com/terms/r/rsi.asp)
 Bollinger band (https://www.investopedia.com/terms/b/bollingerbands.asp)
-Breakout strategy is a momentum-based strategy developed by Larry Williams, where we buy when the price increase more than certain percentage of yesterday's vollatility. (https://www.traderslog.com/volatility-breakout-systems)
+Breakout strategy (https://www.traderslog.com/volatility-breakout-systems) is a momentum-based strategy developed by Larry Williams, where we buy when the price increase more than certain percentage of yesterday's vollatility. 
 MACD-breakout strategy combines MACD and vollatility breakout strategy. It buys when there is an upward divergence in MACD or when there is a breakout signal, and sells when there is downward diveregence in MACD. 
 
 ## backtesting
