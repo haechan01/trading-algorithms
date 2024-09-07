@@ -1,33 +1,37 @@
-# Trading algorithms based on technical indicators and sentiment analysis
+# Trading Algorithms with Technical Indicators and Sentiment Analysis
 
-The main codes are in 'final.ipynb' file. 'constituents.csv' file has stock symbols of S&P500 companies. Using the symbols, we retrieve data from yahoo finance. 
+This repository implements trading algorithms based on technical indicators and sentiment analysis. It evaluates and executes strategies using historical stock data from Yahoo Finance, and real-time sentiment insights from news sources.
 
+## Key Files
+- **final.ipynb**: Contains the main code for strategies, backtesting, and performance visualizations.
+- **constituents.csv**: Lists S&P500 stock symbols for retrieving data.
 
-## strategies
-There are three strategies based on technical indicators: MACD (moving average convergence divergence), RSI (relative strenth index), and bollinger band. 
-More information about the indicators: MACD (https://www.investopedia.com/articles/forex/05/macddiverge.asp)
-RSI (https://www.investopedia.com/terms/r/rsi.asp)
-Bollinger band (https://www.investopedia.com/terms/b/bollingerbands.asp)
-Breakout strategy (https://www.traderslog.com/volatility-breakout-systems) is a momentum-based strategy developed by Larry Williams, where we buy when the price increase more than certain percentage of yesterday's vollatility. 
-MACD-breakout strategy combines MACD and vollatility breakout strategy. It buys when there is an upward divergence in MACD or when there is a breakout signal, and sells when there is downward diveregence in MACD. 
+## Strategies
 
-## backtesting
-We calculate how much profit the strategies would have made given a stock and time range through a backtesting simulation based on the stock's historical data. 
-We compare the results by visualizing the profits in line graph. Also, we randomly sample 50 stocks from S&P 500, select a random range of time between 2012 and 2022, and calculate the average profit of the strategies.
-The average profit is compared using bar graph, and calculating p-value can indicate whether the differences in means are statistically significant. 
+### 1. **Technical Indicator Strategies**
+   - **MACD (Moving Average Convergence Divergence)**: Measures momentum through divergences in moving averages ([Learn more](https://www.investopedia.com/articles/forex/05/macddiverge.asp)).
+   - **RSI (Relative Strength Index)**: Identifies overbought/oversold conditions ([Learn more](https://www.investopedia.com/terms/r/rsi.asp)).
+   - **Bollinger Bands**: Highlights price volatility using bands ([Learn more](https://www.investopedia.com/terms/b/bollingerbands.asp)).
+   - **Breakout Strategy**: A momentum-based strategy that buys on price increases beyond a volatility threshold ([Learn more](https://www.traderslog.com/volatility-breakout-systems)).
+   - **MACD-Breakout**: Combines MACD signals with breakout patterns for trading decisions.
 
-In addition, the win rate (# of profitable trades/total # of trandes) and maximum drawdown (the maximum observed loss from a peak to a trough of a portfolio) to better understand the performance of the strategies. Maximum drawdown (MDD) is especially importand since it is an indicator of downside risk over a specified time period.
+### 2. **Backtesting**
+   - Simulates historical performance of strategies using stock data.
+   - Visualizes profit/loss results and calculates:
+     - **Win rate**: Proportion of profitable trades.
+     - **Maximum Drawdown (MDD)**: Largest observed loss from a peak.
 
-## Bullish and bearish market
-The function 'bullish_bearish' finds bullish and bearish period of length k, given an array of price changes. We compare the strategies in bullish and bearish periods, and find out that the strategies outperform the benchmark (buy-and-hold strategy) in a bearish market, but not as profitable in a bullish market. 
+### 3. **Market Conditions**
+   - The `bullish_bearish` function classifies market conditions.
+   - Strategies are compared during **bullish** and **bearish** periods, with findings indicating outperformance in bearish markets compared to a simple buy-and-hold strategy.
 
-## Sentiment analysis
-To conduct a sentiment analysis of a stock, we get news titles from Google using GoogleNews(https://github.com/Iceloof/GoogleNews). After we do natural language processing of the title texts, we get the polarity scores of the titles usign NLTK. 
+### 4. **Sentiment Analysis**
+   - Retrieves news headlines using GoogleNews ([Library](https://github.com/Iceloof/GoogleNews)).
+   - Analyzes sentiment polarity using NLP (Natural Language Processing) with NLTK.
+   - Implements a **sentiment strategy**: Buys stocks with positive sentiment and sells on negative sentiment.
+   - Categorizes sentiment into five levels: extremely negative, negative, neutral, positive, and extremely positive.
 
-## Application of sentiment analysis in trading
-sentiment_strategy is a simple trading strategy that buys a stock when sentiment is positive and sells when the sentiment is bad. 
-We categorize monthly sentiments into 5 different categories: extremely negative, negative, neutral, positive, and extremely positive. 
-Then, we compare the performances of the strategies in the 5 different sentiment categories. 
-
-
-
+## Performance Evaluation
+- Strategy performance is visualized using line and bar graphs.
+- **p-values** are calculated to determine statistical significance between strategy returns.
+- Comparison of strategy performance across different sentiment categories and market conditions helps assess overall effectiveness.
